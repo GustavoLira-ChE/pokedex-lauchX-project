@@ -1,0 +1,197 @@
+@import url("/pokedex.css");
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+html, body{
+    padding: 0;
+    margin: 0;
+    height: max-content;
+}
+header{
+    display: grid;
+    place-items: center;
+}
+header > img{
+    width: 80%;
+    height: auto;
+    
+}
+/* Pokemon nav bar */
+nav > ul{
+    display: flex;
+    gap: 8px;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+nav > ul > li{
+    line-height: 1.5rem;
+}
+/* Pokedev content */
+.blue-bkg{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+#button-pokedex{
+    display: flex;
+    position: absolute;
+    bottom: 3px;
+}
+#button-pokedex > button{
+    flex: 1;
+}
+#button-pokedex > div{
+    flex: 3;
+}
+#button-pokedex > div input{
+    width: 100%;
+}
+#button-pokedex > div > button{
+    width: 100%;
+}
+/* More information style */
+#morePokemonInfo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    place-content: center;
+    background-color: hsla(0, 12%, 10%, 0.6);
+}
+#morePokemonInfo button{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 20;
+}
+.hidden{
+    display: none;
+}
+#infoWrapper{
+    width: clamp(18.75rem, 16.5441rem + 11.7647vw, 31.25rem);
+    overflow-y: scroll;
+    position: relative;
+    background-color: white;
+    padding: 16px;
+}
+#infoWrapper img{
+    width: 200px;
+    position: absolute;
+    right: 0;
+    top: -60px;
+}
+
+/* Pokemon infocard */
+#pokedisplay{
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(min(160px,100%),1fr));
+    padding: 16px;
+}
+.infocard, #pokeDexDisplay{
+    display: grid;
+    place-content: center;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+#pokeDexDisplay{
+    border: none;
+}
+.infocard span a, #pokeDexDisplay span a{
+    display: inline-block;
+}
+.infocard > span:nth-of-type(1), #pokeDexDisplay > span:nth-of-type(1){
+    display: grid;
+    place-content: center;
+}
+.infocard > span:nth-of-type(2), #pokeDexDisplay > span:nth-of-type(2){
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 150px);
+    justify-items: center;
+    gap: 16px;
+}
+.infocard > span:nth-of-type(2) > a, #pokeDexDisplay > span:nth-of-type(2) > a {
+    display: inline-block;
+    font-size: 1.1rem;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+/* Styling type of pokemon */
+.type{
+    display: inline-block;
+    width: 66px;
+    border: 1px solid #a3a3a3;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    border: 1px solid rgba(0,0,0,.2);
+    color: #fff;
+    font-size: .75rem;
+    line-height: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgb(0 0 0 / 70%);
+    text-transform: capitalize;
+    transition: opacity .4s;
+    text-decoration: none;
+}
+.grass{
+    background-color: #7c5;
+}
+.fire{
+    background-color: #f42;
+}
+.water{
+    background-color: #39f;
+}
+.electric{
+    background-color: #fc3;
+}
+.normal{
+    background-color: #aa9;
+}
+.ice{
+    background-color: #6cf;
+}
+.fighting{
+    background-color: #b54;
+}
+.poison{
+    background-color: #a59;
+}
+.ground{
+    background-color: #db5;
+}
+.flying{
+    background-color: #89f;
+}
+.psychic{
+    background-color: #f59;
+}
+.bug{
+    background-color: #ab2;
+}
+.rock{
+    background-color: #ba6;
+}
+.ghost{
+    background-color: #66b;
+}
+.dragon{
+    background-color: #76e;
+}
+.dark{
+    background-color: #754;
+}
+.steel{
+    background-color: #aab;
+}
+.fairy{
+    background-color: #e9e;
+}

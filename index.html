@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title>PokedeX</title>
+</head>
+<body>
+    <header>
+        <img src="/assets/pokemon-logo-png-1421.png" alt="">
+    </header>
+    <nav>
+        <ul>
+            <li><button onclick="listOfPokemonFetch(151,0)"> Kanto</button></li>
+            <li><button onclick="listOfPokemonFetch(100,151)">Johto</button></li>
+            <li><button onclick="listOfPokemonFetch(135,251)">Hoen</button></li>
+            <li><button onclick="listOfPokemonFetch(107,386)">Sinnoh</button></li>
+            <li><button onclick="listOfPokemonFetch(156,493)">Teselia</button></li>
+            <li><button onclick="listOfPokemonFetch(72,649)">Kalos</button></li>
+            <li><button onclick="listOfPokemonFetch(88,721)">Alola</button></li>
+            <li><button onclick="listOfPokemonFetch(96,809)">Galar</button></li>
+        </ul>
+    </nav>
+    <section id="pokedex-container">
+        <div class="red-rect1">
+            <div class="major-blue-circle1"></div>
+            <div class="black-circle1"></div>
+            <div class="blue-circle1"></div>
+            <div class="curve1"></div>
+            <div class="curve2"></div>
+            <div class="curve3"></div>
+            <div class="curve4"></div>
+        </div>
+        <div class="blue-bkg">
+            <div id="pokeDexDisplay"></div>
+            <div id="button-pokedex">
+                <button onclick="afterBeforePokemon('before')">&#8592</button>
+                <div>
+                    <input type="text" id="pokemonIDNAME" placeholder="Search">
+                    <button onclick="searchPokemon()">Search</button>
+                </div>
+                <button onclick="afterBeforePokemon('after')">&#8594</button>
+            </div>
+        </div>
+        <div class="red-rect2">
+            <div class="major-blue-circle2"></div>
+            <div class="black-circle2"></div>
+            <div class="blue-circle2"></div>
+            <div class="curve5"></div>
+            <div class="curve6"></div>
+            <div class="curve7"></div>
+            <div class="curve8"></div>
+        </div>
+        
+    </section>
+    <section id="morePokemonInfo"></section>
+    <div id="pokedisplay"></div>
+    <script src="/index.js"></script>
+</body>
+</html>
