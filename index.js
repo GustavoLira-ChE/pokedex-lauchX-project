@@ -13,7 +13,7 @@ pokefetch = (pokemon, tagTarget) => {
                 </span>
                 <span class="infcard-data">
                     <small id="pokemonID${data["id"]}" value="${data["id"]}">Pokemon ID: ${data["id"]}</small>
-                    <button class="name" onclick="showInPokedex(${tagTarget})">${data["forms"][0]["name"]}</button>
+                    <button class="name" onclick="showInPokedex(${tagTarget},${data["id"]})">${data["forms"][0]["name"]}</button>
                     <button onclick="showHidden('morePokemonInfo','pokedisplay',${data["id"]})">More Inf</button>
                     <small>
                         ${pokemonType(data)}
@@ -59,12 +59,11 @@ pokemonExtraInfo = (id,targetTag) =>{
             let newID = parseInt(id) - 1
             let pkn = data[newID]
             let componentPokedex = `
-            <div id="infoWrapper" class="${pkn["types"]["0"]}">
+            <div id="infoWrapper">
                 <button onclick="showHidden('pokedisplay','morePokemonInfo')">X</button>
                 <article>
                     <h3>About</h3>
                     <div>
-                        <img src="${pkn["image"]}">
                         <p>${pkn["height"]} m</p>
                         <p>Pokemon specie: ${pkn["species"]}</p>
                         <p>${pkn["weight"] } kg</p>
@@ -124,8 +123,10 @@ pokemonExtraInfo = (id,targetTag) =>{
                             <td>Max</td>
                         </tr>
                     </table>
-                </div>
-                    `
+                    </article>
+                    <img src="${pkn["image"]}">
+            <div/>        
+        `
             document.getElementById(targetTag).innerHTML = componentPokedex
         })
 }
@@ -146,16 +147,36 @@ function showHidden(shown, hidden, id) {
 searchPokemon = () => {
     let pokemon = document.getElementById("pokemonIDNAME").value;
     pokefetch(pokemon.toLowerCase(), "pokeDexDisplay");
+    fetch("https://pokeapi.co/api/v2/pokemon/"+pokemon.toLowerCase())
+        .then(response => response.json())
+        .then(data => {
+            console.log(data["id"])
+            document.getElementById("previousPkn").value = parseInt(data["id"]) - 1
+            document.getElementById("nextPkn").value = parseInt(data["id"]) + 1
+        })
+    
 }
-afterBeforePokemon = (id,direction) => {
+afterBeforePokemon = (direction) => {
+    let id
     if(direction == "before"){
-        pokefetch(parseInt(id) - 1, "pokeDexDisplay");
+        id = document.getElementById("previousPkn").value
+        console.log(id)
+        pokefetch(id, "pokeDexDisplay");
+        document.getElementById("previousPkn").value = parseInt(id) - 1
+        document.getElementById("nextPkn").value = parseInt(id) + 1
     } else if(direction == "after"){
-        pokefetch(parseInt(id) + 1, "pokeDexDisplay");
+        id = document.getElementById("nextPkn").value
+        console.log(id)
+        pokefetch(id, "pokeDexDisplay");
+        document.getElementById("previousPkn").value = parseInt(id) - 1
+        document.getElementById("nextPkn").value = parseInt(id) + 1
     }
 }
-showInPokedex = (tagTarget) =>{
+showInPokedex = (tagTarget,id) =>{
     document.getElementById("pokeDexDisplay").innerHTML = tagTarget.innerHTML
+    document.getElementById("previousPkn").value = parseInt(id) - 1
+    document.getElementById("nextPkn").value = parseInt(id) + 1
+
     window.scrollTo({
         top: 0,
         left: 0,

@@ -72,21 +72,22 @@ nav > ul > li{
     top: 0;
     z-index: 20;
 }
-.hidden{
-    display: none;
-}
 #infoWrapper{
-    width: clamp(18.75rem, 16.5441rem + 11.7647vw, 31.25rem);
+    width: clamp(18.75rem, 14.3382rem + 23.5294vw, 43.75rem);
     overflow-y: scroll;
     position: relative;
     background-color: white;
     padding: 16px;
 }
+#infoWrapper > article{
+    position: relative;
+    z-index: 20;
+}
 #infoWrapper img{
     width: 200px;
     position: absolute;
     right: 0;
-    top: -60px;
+    top: 0;
 }
 
 /* Pokemon infocard */
@@ -118,11 +119,11 @@ nav > ul > li{
     justify-items: center;
     gap: 16px;
 }
-.infocard > span:nth-of-type(2) > a, #pokeDexDisplay > span:nth-of-type(2) > a {
+.infocard > span:nth-of-type(2) > button, #pokeDexDisplay > span:nth-of-type(2) > button {
     display: inline-block;
-    font-size: 1.1rem;
     text-transform: capitalize;
     text-decoration: none;
+    background-color: inherit;
 }
 /* Styling type of pokemon */
 .type{

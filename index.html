@@ -36,12 +36,12 @@
         <div class="blue-bkg">
             <div id="pokeDexDisplay"></div>
             <div id="button-pokedex">
-                <button onclick="afterBeforePokemon('before')">&#8592</button>
+                <button id="previousPkn" onclick="afterBeforePokemon('before')">&#8592</button>
                 <div>
                     <input type="text" id="pokemonIDNAME" placeholder="Search">
                     <button onclick="searchPokemon()">Search</button>
                 </div>
-                <button onclick="afterBeforePokemon('after')">&#8594</button>
+                <button id="nextPkn" onclick="afterBeforePokemon('after')">&#8594</button>
             </div>
         </div>
         <div class="red-rect2">
