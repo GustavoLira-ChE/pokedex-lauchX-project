@@ -19,6 +19,11 @@ header > img{
     
 }
 /* Pokemon nav bar */
+nav{
+    display: grid;
+    place-content: center;
+    padding: 8px;
+}
 nav > ul{
     display: flex;
     gap: 8px;
