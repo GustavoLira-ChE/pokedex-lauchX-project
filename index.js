@@ -61,6 +61,7 @@ pokemonExtraInfo = (id,targetTag) =>{
             let componentPokedex = `
             <div id="infoWrapper">
                 <button onclick="showHidden('pokedisplay','morePokemonInfo')">X</button>
+                <img src="${pkn["image"]}">
                 <article>
                     <h3>About</h3>
                     <div>
@@ -124,7 +125,7 @@ pokemonExtraInfo = (id,targetTag) =>{
                         </tr>
                     </table>
                     </article>
-                    <img src="${pkn["image"]}">
+                    
             <div/>        
         `
             document.getElementById(targetTag).innerHTML = componentPokedex

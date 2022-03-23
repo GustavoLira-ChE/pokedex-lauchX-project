@@ -85,9 +85,8 @@ nav > ul > li{
 }
 #infoWrapper img{
     width: 200px;
-    position: absolute;
-    right: 0;
-    top: 0;
+    float: right;
+    margin-left: 8px;
 }
 
 /* Pokemon infocard */
@@ -195,4 +194,15 @@ nav > ul > li{
 }
 .fairy{
     background-color: #e9e;
+}
+
+@media (min-width: 600px){
+    #morePokemonInfo{
+        height: 140vh;
+    }
+}
+@media (min-width: 1100px){
+    #morePokemonInfo{
+        height: 180vh;
+    }
 }
